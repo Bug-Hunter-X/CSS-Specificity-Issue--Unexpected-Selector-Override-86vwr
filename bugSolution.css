@@ -1,0 +1,19 @@
+To correct this unexpected behavior, we need to make sure that the `div.my-class` selector's specificity is higher than both `div` and `.my-class` selectors.  This can be achieved by adding more specific selectors.  The solution is not to simply make `div.my-class`'s declaration more specific, but to understand the specificity calculation in the first place.
+
+Here's the corrected CSS:
+
+```css
+div {
+  color: blue;
+}
+
+.my-class {
+  color: red;
+}
+
+#my-id.my-class {
+  color: green; /* Now the green color will be applied */
+}
+```
+
+In the corrected CSS, we've added an ID selector (`#my-id`) to the more specific selector.  An ID selector has the highest specificity, resulting in this rule taking precedence over other rules. In the original code, we were relying on a selector that only had element and class specificity which was lower than only element selector specificity in this example.  Now the `#my-id.my-class` selector has higher specificity than the `div` selector, resulting in the expected green color being applied.
