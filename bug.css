@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.my-class {
+  color: red;
+}
+
+div.my-class {
+  color: green; /* This rule is unexpectedly overridden */
+}
+```
+
+In this case, the `div.my-class` selector has higher specificity than `.my-class` selector, but lower specificity than `div` selector. Therefore, `div` is overriding `div.my-class` selector.  This is less common than the more frequently encountered specificity issues between classes and IDs, but it's crucial to understand the nuances of CSS selector specificity to avoid such unexpected behavior.
